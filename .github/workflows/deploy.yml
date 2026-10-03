@@ -1,0 +1,50 @@
+name: Deploy CodeTrack to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build React frontend and deploy to GitHub Pages
+
+    steps:
+      # 1. Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Install client dependencies
+      - name: Install client dependencies
+        run: npm install
+        working-directory: ./client
+
+      # 4. Build the React app
+      #    VITE_API_URL must be set to the Render backend URL.
+      #    Go to: GitHub repo → Settings → Secrets and variables → Actions
+      #    Add a secret named VITE_API_URL with your Render backend URL.
+      - name: Build React app
+        run: npm run build
+        working-directory: ./client
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+
+      # 5. Deploy the built dist/ folder to the gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./client/dist
+          publish_branch: gh-pages
+          # Required so React Router works with GitHub Pages
+          force_orphan: true

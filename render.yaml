@@ -1,0 +1,3 @@
+# Render will use this to install & start the backend
+# Build Command (in Render dashboard): npm install
+# Start Command (in Render dashboard): node server.js

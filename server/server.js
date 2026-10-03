@@ -7,17 +7,32 @@ const problemRoutes = require('./routes/problemRoutes');
 // Load environment variables
 dotenv.config();
 
-// Connect to MongoDB
+// Connect to MongoDB (falls back to local JSON store if offline)
 connectDB();
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// Allow CORS from GitHub Pages frontend and localhost in dev
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://sanjaykarthic77sky.github.io',
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g. Postman, curl)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      callback(new Error(`CORS blocked: ${origin}`));
+    },
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Root route for health check
+// Root health check
 app.get('/', (req, res) => {
   res.json({
     message: 'CodeTrack API is running',
@@ -29,7 +44,7 @@ app.get('/', (req, res) => {
 // API Routes
 app.use('/api/problems', problemRoutes);
 
-// 404 Handler for undefined routes
+// 404 Handler
 app.use((req, res, next) => {
   res.status(404).json({
     success: false,
@@ -49,10 +64,6 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  app.listen(PORT, () => {
-    console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-  });
-}
-
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+});
