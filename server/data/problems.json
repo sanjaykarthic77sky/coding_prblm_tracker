@@ -1,0 +1,122 @@
+[
+  {
+    "_id": "66f40001a1b2c3d4e5f60001",
+    "title": "Two Sum",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topic": "Array",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/two-sum/",
+    "notes": "Used a HashMap to store value-to-index mappings for O(n) time complexity.",
+    "createdAt": "2026-10-01T10:00:00.000Z",
+    "updatedAt": "2026-10-01T10:00:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60002",
+    "title": "Valid Parentheses",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topic": "Stack",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/valid-parentheses/",
+    "notes": "Push opening brackets to stack, check matching closing brackets upon popping.",
+    "createdAt": "2026-10-01T11:15:00.000Z",
+    "updatedAt": "2026-10-01T11:15:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60003",
+    "title": "Binary Search",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topic": "Searching",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/binary-search/",
+    "notes": "Classic two-pointer approach with mid = left + (right - left) / 2 to avoid overflow.",
+    "createdAt": "2026-10-01T14:30:00.000Z",
+    "updatedAt": "2026-10-01T14:30:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60004",
+    "title": "Reverse Linked List",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topic": "Linked List",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/reverse-linked-list/",
+    "notes": "Iterative pointer manipulation using prev, curr, and next pointers in O(n) time.",
+    "createdAt": "2026-10-02T09:00:00.000Z",
+    "updatedAt": "2026-10-02T09:00:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60005",
+    "title": "Maximum Subarray",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topic": "Dynamic Programming",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/maximum-subarray/",
+    "notes": "Applied Kadane's Algorithm to maintain max ending here and overall max sum.",
+    "createdAt": "2026-10-02T13:45:00.000Z",
+    "updatedAt": "2026-10-02T13:45:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60006",
+    "title": "Merge Two Sorted Lists",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topic": "Linked List",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/merge-two-sorted-lists/",
+    "notes": "Created a dummy head node and iteratively attached the smaller element.",
+    "createdAt": "2026-10-02T16:20:00.000Z",
+    "updatedAt": "2026-10-02T16:20:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60007",
+    "title": "Valid Anagram",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topic": "String",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/valid-anagram/",
+    "notes": "Used a 26-length frequency array to count character occurrences.",
+    "createdAt": "2026-10-03T08:10:00.000Z",
+    "updatedAt": "2026-10-03T08:10:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60008",
+    "title": "Best Time to Buy and Sell Stock",
+    "platform": "LeetCode",
+    "difficulty": "Easy",
+    "topic": "Array",
+    "status": "Solved",
+    "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+    "notes": "Tracked minPrice seen so far and calculated maxProfit greedily.",
+    "createdAt": "2026-10-03T09:30:00.000Z",
+    "updatedAt": "2026-10-03T09:30:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60009",
+    "title": "Longest Substring Without Repeating Characters",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topic": "String",
+    "status": "Unsolved",
+    "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+    "notes": "Plan to implement a sliding window with a Set to track seen characters.",
+    "createdAt": "2026-10-03T10:15:00.000Z",
+    "updatedAt": "2026-10-03T10:15:00.000Z"
+  },
+  {
+    "_id": "66f40001a1b2c3d4e5f60010",
+    "title": "Number of Islands",
+    "platform": "LeetCode",
+    "difficulty": "Medium",
+    "topic": "Graph",
+    "status": "Unsolved",
+    "link": "https://leetcode.com/problems/number-of-islands/",
+    "notes": "Need to implement DFS or BFS traversal to sink connected land cells.",
+    "createdAt": "2026-10-03T11:00:00.000Z",
+    "updatedAt": "2026-10-03T11:00:00.000Z"
+  }
+]
