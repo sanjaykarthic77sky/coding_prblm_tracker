@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-// In development: falls back to localhost:5000 via Vite proxy
-// In production (GitHub Pages): uses the Render backend URL from VITE_API_URL env variable
-const API_URL = import.meta.env.VITE_API_URL || '/api/problems';
+// Resolve backend API URL
+// Supports VITE_API_URL (e.g. https://backend.onrender.com or https://backend.onrender.com/api/problems)
+const rawBaseUrl = import.meta.env.VITE_API_URL;
+const API_URL = rawBaseUrl
+  ? `${rawBaseUrl.replace(/\/+$/, '').replace(/\/api\/problems$/, '')}/api/problems`
+  : '/api/problems';
 
 // Fetch all problems (supports optional query parameters like search, platform, difficulty, topic, status)
 export const getProblems = async (params = {}) => {
